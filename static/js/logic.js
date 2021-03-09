@@ -23,15 +23,14 @@ function markerColor(mag) {
 
 // GET request 
 d3.json(link, function(data) {
-  // Once we get a response, send the data.features object to the createFeatures function
+
   createFeatures(data.features);
 });
 
 function createFeatures(earthquakeData) {
 
   var earthquakes = L.geoJSON(earthquakeData, {
-  // Define a function we want to run once for each feature in the features array
-  // Give each feature a popup describing the place and time of the earthquake
+    
  onEachFeature : function (feature, layer) {
 
     layer.bindPopup("<h3>" + feature.properties.place +
